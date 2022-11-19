@@ -1,0 +1,20 @@
+class MyString{
+    reverse(text){
+        return text.split('').reverse().join('');
+    }
+    ucFirst(text){
+        return text[0].toUpperCase()+text.slice(1,text.length);
+    }
+    ucWords(text){
+        return text.split('').map((el, i, arr) => {
+            if(i == 0 || arr[i-1] == ' ') return arr[i].toUpperCase()
+            else return el;
+        }).join('');
+    }
+}
+
+let str = new MyString();
+
+console.log(str.reverse('abcde')); //выведет 'edcba'
+console.log(str.ucFirst('abcde')); //выведет 'Abcde'
+console.log(str.ucWords('abcde abcde abcde')); //выведет 'Abcde Abcde Abcde'
